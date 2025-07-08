@@ -1,14 +1,8 @@
-import { useMemo } from "react";
-import type { Activity } from "../types";
 import CalorieDisplay from "./CalorieDisplay";
 import { useActivity } from "../hook/useActivity";
 
 export default function CalorieTracker() {
-  const { state, caloriesBurned, caloriesConsumed, netCalories } = useActivity();
-
-  const { activities } = state;
-
-  //Contadores
+  const { caloriesBurned, caloriesConsumed, netCalories } = useActivity();
 
   return (
     <>

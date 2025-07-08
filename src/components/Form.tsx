@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import {v4 as uuidv4} from 'uuid';
-import type { ChangeEvent, Dispatch, FormEvent } from "react";
+import { v4 as uuidv4 } from 'uuid';
+import type { ChangeEvent, FormEvent } from "react";
 import type { Activity } from "../types";
 import { categories } from "../data/categories";
-import type { ActivityActions, ActivityState } from "../reducers/activity-reducer";
 import { useActivity } from "../hook/useActivity";
 
 const initialState : Activity = {
