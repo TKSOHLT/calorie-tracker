@@ -1,29 +1,10 @@
 import { PencilSquareIcon, XCircleIcon } from "@heroicons/react/24/outline";
-import type { Activity } from "../types";
-import { categories } from "../data/categories";
-import { useMemo, type Dispatch } from "react";
-import type { ActivityActions } from "../reducers/activity-reducer";
+import { useActivity } from "../hook/useActivity";
 
-type ActivityListProps = {
-  activities: Activity[];
-  dispatch: Dispatch<ActivityActions>;
-};
+export default function ActivityList() {
+  const {state, dispatch, isEmptyActivities, categoryName} = useActivity();
+  const {activities} = state;
 
-export default function ActivityList({
-  activities,
-  dispatch,
-}: ActivityListProps) {
-  //El segundo parametro del useMemo se le puso otro callback y a este si se le puede poner parametros
-  const categoryName = useMemo(
-    () => (category: Activity["category"]) =>
-      categories.map((cat) => (cat.id === category ? cat.name : "")),
-    [activities]
-  );
-
-  const isEmptyActivities = useMemo(
-    () => activities.length === 0,
-    [activities]
-  );
   return (
     <>
       <h2 className="text-4xl font-bold text-slate-600 text-center">
